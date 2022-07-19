@@ -1,4 +1,3 @@
-from cmath import sin
 import numpy as np
 from numba import jit
 
@@ -75,4 +74,3 @@ def multiple_block_sizes(data, block_size):
         )
 
     return block_avg, block_var, block_size
-    
