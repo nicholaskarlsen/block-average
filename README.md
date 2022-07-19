@@ -18,5 +18,5 @@ block_mean, block_var, block_size = block_average(x)
 
 ## Example Output
 
-![signal](https://github.com/nicholaskarlsen/block-average/blob/main/example/signal.png?raw=true?raw=true)
-![std](https://github.com/nicholaskarlsen/block-average/blob/main/example/std.png?raw=true)
+<img src="https://github.com/nicholaskarlsen/block-average/blob/main/example/signal.png?raw=true" width="800">
+<img src="https://github.com/nicholaskarlsen/block-average/blob/main/example/std.png?raw=true" width="800">
