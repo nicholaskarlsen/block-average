@@ -1,5 +1,5 @@
 # block-average
-A minimal python package that computes the block average of data.
+A minimal python package that computes the block-average and block-average estimates of the standard deviation.
 
 ## Install
 
