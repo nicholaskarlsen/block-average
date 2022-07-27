@@ -1,6 +1,12 @@
 # block-average
 A minimal python package that computes the block average of data.
 
+## Install
+
+```
+pip install git+https://github.com/nicholaskarlsen/block-average/
+```
+
 ## How to use
 
 ```python
