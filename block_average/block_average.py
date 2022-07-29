@@ -17,7 +17,7 @@ def block_average(data, block_size=None):
     elif block_size is None:
         # need at least 4 blocks to compute variance
         block_size = np.arange(1, len(data) // 4)  
-        return multiple_block_sizes(data, block_size)
+        return multiple_block_sizes(data, block_size), block_size
 
     else:
         raise TypeError(
@@ -73,4 +73,4 @@ def multiple_block_sizes(data, block_size):
             data=data, block_size=block_size[i]
         )
 
-    return block_avg, block_var, block_size
+    return block_avg, block_var
