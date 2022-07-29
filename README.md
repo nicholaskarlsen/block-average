@@ -16,7 +16,7 @@ from block_average import block_average
 block_mean, block_var = block_average(x, 3)
 
 # Compute block average with multiple block sizes
-block_mean, block_var, block_size = block_average(x, [1, 2, 3])
+block_mean, block_var = block_average(x, [1, 2, 3])
 
 # Compute block average for all possible block sizes from 1 to len(x)/4
 block_mean, block_var, block_size = block_average(x)
