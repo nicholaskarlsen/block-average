@@ -3,8 +3,8 @@ from numba import jit
 
 
 def block_average(data, block_size=None):
-    """ Computes the block average of a dataset for a single, or multiple block sizes depening on the input.
-    If no block size is given, the block averaging will be performed for all block sizes from 1 to len(data)/4, in 
+    """Computes the block average of a dataset for a single, or multiple block sizes depening on the input.
+    If no block size is given, the block averaging will be performed for all block sizes from 1 to len(data)/4, in
     this case, an array containting the block sizes will also be returned.
 
     Args:
@@ -26,17 +26,15 @@ def block_average(data, block_size=None):
     elif block_size is None:
         # need at least 4 blocks to compute variance
         block_size = np.arange(1, len(data) // 4)
-        return multiple_block_sizes(data, block_size)
+        return multiple_block_sizes(data, block_size), block_size
 
     else:
         raise TypeError("%s not valid type for block_size. Expected: int, list or none" % type(block_size))
 
-    return
-
 
 @jit(nopython=True)
 def single_block_size(data, block_size: int):
-    """ Block-averaging for a single block size
+    """Block-averaging for a single block size
     Args:
         data (np.ndarray): Array containting data
         block_size (int): Block size
@@ -59,7 +57,7 @@ def single_block_size(data, block_size: int):
 
 @jit(nopython=True)
 def multiple_block_sizes(data, block_size):
-    """ Block averaging for multiple block size
+    """Block averaging for multiple block size
     Args:
         data (np.ndarray): Array containting data
         block_size (np.ndarray): Array containting block_sizes
@@ -78,4 +76,5 @@ def multiple_block_sizes(data, block_size):
 
     for i in range(num_block_sizes):
         block_avg[i], block_var[i] = single_block_size(data=data, block_size=block_size[i])
-    return block_avg, block_var, block_size
+
+    return block_avg, block_var
